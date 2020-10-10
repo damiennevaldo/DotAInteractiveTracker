@@ -9,6 +9,10 @@
   --transition-speed: 600ms;
 }
 
+h1 {
+  text-align: center;
+}
+
 body {
   color: black;
   background-color: white;
