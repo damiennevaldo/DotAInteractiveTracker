@@ -9,6 +9,7 @@ import { ModelsScoreComponent } from './models-score/models-score.component';
 import { SpecificGamePredictionComponent } from './specific-game-prediction/specific-game-prediction.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { TokenTextAreaComponent } from './token-text-area/token-text-area.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ModelsScoreComponent,
     SpecificGamePredictionComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    TokenTextAreaComponent
   ],
   imports: [
     BrowserModule,
