@@ -10,6 +10,8 @@ import { SpecificGamePredictionComponent } from './specific-game-prediction/spec
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TokenTextAreaComponent } from './token-text-area/token-text-area.component';
+import { FormsModule } from "@angular/forms";
+import { CookieService } from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { TokenTextAreaComponent } from './token-text-area/token-text-area.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
