@@ -1,3 +1,4 @@
+import { ApiCallsService } from './../../services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryGamesPredictedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiCalls: ApiCallsService) {  }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const retour =  await this.apiCalls.getListroutes();
+    console.dir(JSON.stringify(retour));
   }
 
-}
+  }
