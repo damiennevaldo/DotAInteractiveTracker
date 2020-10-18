@@ -13,13 +13,12 @@ export class HomeBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  test(): string{
-    return 'a';
-    // return Date.now();
+  test(): string {
+    return new Date().toISOString();
   }
 
-  last_run(): string{
-    return 'Last run';
+  last_run(): string {
+    return 'date of last run';
   }
 
 }

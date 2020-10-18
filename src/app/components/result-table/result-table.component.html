@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V03</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-table200">
+			<div class="wrap-table100">
+
+				<div class="table100 ver2 m-b-110">
+					<table data-vertable="ver2">
+						<thead>
+							<tr class="row100 head">
+                <th *ngFor="let item of firstEntry | keyvalue: originalOrder, let i = index" [ngClass]="'column100 column'+ i+1">{{item.key}}</th>
+							</tr>
+						</thead>
+						<tbody>
+              <tr *ngFor="let entry of resultData" [ngClass]="'row100'" >
+                <td *ngFor="let item of entry | keyvalue: originalOrder, let i = index" [ngClass]="'column100 column'+ i+1" >{{item.value}}</td>
+              </tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./vendor/bootstrap/js/popper.js"></script>
+	<script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./js/main.js"></script>
+
+</body>
+</html>

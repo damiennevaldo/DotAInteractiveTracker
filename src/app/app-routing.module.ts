@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HistoryGamesPredictedComponent} from './components/history-games-predicted/history-games-predicted.component';
-import {ModelsNameComponent} from './models-name/models-name.component';
-import {ModelsScoreComponent} from './models-score/models-score.component';
-import {SpecificGamePredictionComponent} from './specific-game-prediction/specific-game-prediction.component';
+import {ModelsNameComponent} from './components/models-name/models-name.component';
+import {ModelsScoreComponent} from './components/models-score/models-score.component';
+import {SpecificGamePredictionComponent} from './components/specific-game-prediction/specific-game-prediction.component';
 import {HomeComponent} from './components/home/home.component';
 
 const routes: Routes = [

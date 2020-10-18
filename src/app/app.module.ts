@@ -6,14 +6,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HistoryGamesPredictedComponent } from './components/history-games-predicted/history-games-predicted.component';
-import { ModelsNameComponent } from './models-name/models-name.component';
-import { ModelsScoreComponent } from './models-score/models-score.component';
-import { SpecificGamePredictionComponent } from './specific-game-prediction/specific-game-prediction.component';
+import { ModelsNameComponent } from './components/models-name/models-name.component';
+import { ModelsScoreComponent } from './components/models-score/models-score.component';
+import { SpecificGamePredictionComponent } from './components/specific-game-prediction/specific-game-prediction.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { TokenTextAreaComponent } from './token-text-area/token-text-area.component';
+import { TokenTextAreaComponent } from './components/token-text-area/token-text-area.component';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { ResultTableComponent } from './components/result-table/result-table.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CookieService } from 'ngx-cookie-service';
     HomeComponent,
     HomeBarComponent,
     NavBarComponent,
-    TokenTextAreaComponent
+    TokenTextAreaComponent,
+    ResultTableComponent
   ],
   imports: [
     BrowserModule,

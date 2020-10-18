@@ -1,5 +1,6 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TokenService} from "../services/token/token.service";
+import { TokenService } from './../../services/token/token.service';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-token-text-area',
@@ -8,9 +9,9 @@ import {TokenService} from "../services/token/token.service";
 })
 export class TokenTextAreaComponent implements OnInit {
 
-  token:string;
+  token: string;
 
-  constructor(private tokenService:TokenService) { }
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
    this.token = this.tokenService.getToken();
