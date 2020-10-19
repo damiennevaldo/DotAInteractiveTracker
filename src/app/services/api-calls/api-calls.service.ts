@@ -8,7 +8,8 @@ import axios from 'axios';
 const BASE_URL = 'https://dota-prediction.herokuapp.com/';
 const URL_LAST_RUN = '1.0/model/last-run';
 const URL_LIST_ROUTES = '1.0/list-routes';
-const URL_GAMES_PREDICTED = '1.0/games-predicted';
+// Parameter : page
+const URL_GAMES_PREDICTED = '1.0/games-predicted?page=';
 // Parameter : match-id
 const URL_PREDICT = '1.0/model/predict/';
 // Parameter : max-line
@@ -25,9 +26,10 @@ export class ApiCallsService {
 
   async callApi(apiUrl: string, parameter?: any | undefined): Promise<any> {
     let uri = BASE_URL + apiUrl;
-    if (parameter && parameter.trim()){
+    if (parameter){
       uri += parameter;
    }
+    console.log('Appel de :' + uri);
     return await axios.get(uri, {
       headers:
         {
@@ -37,45 +39,57 @@ export class ApiCallsService {
         );
   }
     // Call to list-routes
-   async getListroutes(): Promise<any> {
-    console.log('log : ' + BASE_URL + URL_LIST_ROUTES);
+   getListroutes(): Promise<any> {
     try{
-    return await this.callApi(URL_LIST_ROUTES);
+      return this.callApi(URL_LIST_ROUTES);
     } catch (error) {
-      return await error;
+      return error;
     }
-      // const headers = new HttpHeaders().set('access_token', 'M');
-      // console.log(headers);
-      // return this.http.get(BASE_URL + URL_LISTE_ROUTES,
-      //   {
-      //     headers: {
-      //       'access_token': 'M',
-      //     },
-      //   } );
     }
 
     // Call to games-predicted
-    getGamesPredicted(): Promise <any> {
-      console.log('log : ' + BASE_URL + URL_GAMES_PREDICTED);
-      return this.callApi(URL_GAMES_PREDICTED);
+    getGamesPredictedPaginated(page: number): Promise <any> {
+      try{
+        return this.callApi(URL_GAMES_PREDICTED, page);
+      } catch (error) {
+        return error;
+      }
     }
 
     // Call to predict
     getPredict(matchId: number): Promise <any> {
-      console.log('log : ' + BASE_URL + URL_PREDICT);
-      return this.callApi(URL_PREDICT, matchId);
+      try{
+        return this.callApi(URL_PREDICT, matchId);
+      } catch (error) {
+          return error;
+      }
     }
 
     // Call to score
     getScore(maxLine: number): Promise <any> {
-      console.log('log : ' + BASE_URL + URL_SCORE);
-      return this.callApi(URL_SCORE, maxLine);
+      try{
+        return this.callApi(URL_SCORE, maxLine);
+      } catch (error) {
+          return error;
+      }
     }
 
     // Call to stats
     getStats(): Promise <any> {
-      console.log('log : ' + BASE_URL + URL_STATS);
-      return this.callApi(URL_STATS);
+      try{
+        return this.callApi(URL_STATS);
+      } catch (error) {
+          return error;
+      }
+    }
+
+        // Call to stats
+    getLastRun(): Promise <any> {
+      try{
+        return this.callApi(URL_LAST_RUN);
+      } catch (error) {
+          return error;
+        }
     }
 
     // Call to the truth

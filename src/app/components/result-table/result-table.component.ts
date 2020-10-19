@@ -1,4 +1,5 @@
 import { KeyValue } from '@angular/common';
+import { applySourceSpanToExpressionIfNeeded } from '@angular/compiler/src/output/output_ast';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -16,12 +17,13 @@ export class ResultTableComponent{
   @Input()
   get data(): any[] { return this.resultData; }
   set data(data: any[]) {
-    console.log('coucou');
     this.resultData = data;
+    if (data) {
     this.firstEntry = data[0];
+    }
   }
 
-  originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+  originalOrder = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
     return 0;
   }
 

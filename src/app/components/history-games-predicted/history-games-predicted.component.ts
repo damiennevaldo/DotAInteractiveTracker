@@ -8,35 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryGamesPredictedComponent implements OnInit {
 
-  data;
+  data = [];
 
   constructor(private apiCalls: ApiCallsService) {  }
 
   async ngOnInit(): Promise<void> {
-    const retour =  await this.apiCalls.getListroutes();
-    console.log(JSON.parse(JSON.stringify(retour)));
-    this.test();
-  }
-
-  test(): void {
-    console.log('dans test');
-    this.data = [
-      {
-          MatchID: 5662058221,
-          ModelName: 'main_classifier',
-          Predict: 0,
-          PredictName: 'radiant_team',
-          PredictProba: 0.58,
-          InsertedDate: '2020-10-18T17:27:00.65Z'
-      },
-      {
-          MatchID: 5661944699,
-          ModelName: 'main_classifier',
-          Predict: 0,
-          PredictName: 'dire_team',
-          PredictProba: 0.65,
-          InsertedDate: '2020-10-18T17:27:00.65Z'
-      }
-    ]
+    const retour =  await this.apiCalls.getGamesPredictedPaginated(1);
+    console.dir(retour);
+    const data = retour.data;
+    if (data && data.Code === 0 && data.Data) {
+      this.data = data.Data;
+    }
   }
 }
