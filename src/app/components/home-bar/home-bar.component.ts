@@ -17,6 +17,7 @@ export class HomeBarComponent implements OnInit {
   constructor(private apiCalls: ApiCallsService) {
     setInterval(() => {
       this.now = new Date();
+
       if (this.lastRunDate){
         this.isMoreThanADay = (this.now.getTime() - this.lastRunDate.getTime() > MS_IN_A_DAY);
       }
@@ -28,17 +29,10 @@ export class HomeBarComponent implements OnInit {
     const data = promise$.data;
     console.dir(promise$);
     if (data && data.Code === 0 && data.Data) {
-      const date = new Date(data.Data.InsertedDate);
-      const timeZoneDifference = (date.getTimezoneOffset() / 60) * -1; // convert to positive value.
-      date.setTime(date.getTime() - (timeZoneDifference * 60) * 60 * 1000);
-      this.lastRunDate = date;
+      this.lastRunDate = new Date(data.Data.InsertedDate);
+      //const timeZoneDifference = (date.getTimezoneOffset() / 60) * -1; // convert to positive value.
+      //date.setTime(date.getTime() - (timeZoneDifference * 60) * 60 * 1000);
+      //this.lastRunDate = date;
     }
-    console.log(this.now);
-    console.log(this.lastRunDate);
   }
-
-  last_run(): string {
-    return 'date of last run';
-  }
-
 }

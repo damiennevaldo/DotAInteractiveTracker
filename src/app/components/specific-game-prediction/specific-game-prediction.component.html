@@ -1,4 +1,16 @@
 <body class="center-body">
-    specific game prediction ici
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <label for="matchId">MatchId</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="matchId" placeholder="Insérer l'ID du match recherché" [(ngModel)] = "matchId">
+      </div>
+    </div>
+    <div class="row">
+      <button (click)="getGamePrediction(matchId)">Submit</button>
+    </div>
+  </div>
+  <app-result-table [data] = "data"></app-result-table>
 </body>
-    
