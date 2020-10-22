@@ -1,3 +1,4 @@
+import { TokenService } from './../../services/token/token.service';
 import { ApiCallsService } from './../../services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,9 +11,19 @@ export class HistoryGamesPredictedComponent implements OnInit {
 
   data = [];
 
-  constructor(private apiCalls: ApiCallsService) {  }
+  constructor(private apiCalls: ApiCallsService, private token: TokenService) {  }
 
   async ngOnInit(): Promise<void> {
+    //TODO : bonne idée mais avec ce event, nouvel appel à chaque keyPress (faire à onBlur)
+    /*this.token.tokenChanged.subscribe (async value => {
+      if (value === true) {
+        const retour =  await this.apiCalls.getGamesPredictedPaginated(1);
+        const data = retour.data;
+        if (data && data.Code === 0 && data.Data) {
+          this.data = data.Data;
+        }
+      }
+    });*/
     const retour =  await this.apiCalls.getGamesPredictedPaginated(1);
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {

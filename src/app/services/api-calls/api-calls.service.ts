@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {TokenService} from './../token/token.service';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ const URL_LAST_RUN = '1.0/model/last-run';
 const URL_LIST_ROUTES = '1.0/list-routes';
 // Parameter : page
 const URL_GAMES_PREDICTED = '1.0/games-predicted?page=';
+const URL_GAMES_PREDICTED_LIVE = '1.0/games-predicted-live?page=';
 // Parameter : match-id
 const URL_PREDICT = '1.0/model/predict/';
 // Parameter : max-line
@@ -22,7 +23,7 @@ const LOL_PIERRE_PTDR = '1.0/users/personnetrouverajamaismaroutedecreationdutili
 })
 export class ApiCallsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private token: TokenService) { }
 
   async callApi(apiUrl: string, parameter?: any | undefined): Promise<any> {
     let uri = BASE_URL + apiUrl;
@@ -33,7 +34,7 @@ export class ApiCallsService {
     return await axios.get(uri, {
       headers:
         {
-          access_token: 'M',
+          access_token: this.token.getToken(),
           'Access-Control-Allow-Origin': '*'}
         }
         );
@@ -51,6 +52,15 @@ export class ApiCallsService {
     getGamesPredictedPaginated(page: number): Promise <any> {
       try{
         return this.callApi(URL_GAMES_PREDICTED, page);
+      } catch (error) {
+        return error;
+      }
+    }
+
+    // Call to games-predicted
+    getGamesPredictedLivePaginated(page: number): Promise <any> {
+      try{
+        return this.callApi(URL_GAMES_PREDICTED_LIVE, page);
       } catch (error) {
         return error;
       }

@@ -1,5 +1,6 @@
 import { ApiCallsService } from 'src/app/services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-specific-game-prediction',

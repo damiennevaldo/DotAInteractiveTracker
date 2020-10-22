@@ -15,6 +15,7 @@ import { TokenTextAreaComponent } from './components/token-text-area/token-text-
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ResultTableComponent } from './components/result-table/result-table.component';
+import { LiveGamesPredictedComponent } from './components/live-games-predicted/live-games-predicted.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ResultTableComponent } from './components/result-table/result-table.com
     HomeBarComponent,
     NavBarComponent,
     TokenTextAreaComponent,
-    ResultTableComponent
+    ResultTableComponent,
+    LiveGamesPredictedComponent
   ],
   imports: [
     BrowserModule,

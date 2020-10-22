@@ -1,5 +1,6 @@
 import { ApiCallsService } from './../../services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 const MS_IN_A_DAY = 86400000;
 
@@ -26,13 +27,13 @@ export class HomeBarComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const promise$ =  await this.apiCalls.getLastRun();
-    const data = promise$.data;
     console.dir(promise$);
+    const data = promise$.data;
     if (data && data.Code === 0 && data.Data) {
-      this.lastRunDate = new Date(data.Data.InsertedDate);
-      //const timeZoneDifference = (date.getTimezoneOffset() / 60) * -1; // convert to positive value.
-      //date.setTime(date.getTime() - (timeZoneDifference * 60) * 60 * 1000);
-      //this.lastRunDate = date;
+      const date = new Date(data.Data.InsertedDate);
+      const timeZoneDifference = (date.getTimezoneOffset() / 60) * -1; // convert to positive value.
+      date.setTime(date.getTime() - (timeZoneDifference * 60) * 60 * 1000);
+      this.lastRunDate = date;
     }
   }
 }
