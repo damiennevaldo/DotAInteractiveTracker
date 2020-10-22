@@ -1,5 +1,5 @@
+import { ApiCallsService } from './../../services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
-// import { Date } from 'Date';
 
 @Component({
   selector: 'app-home-bar',
@@ -8,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeBarComponent implements OnInit {
 
-  constructor() { }
+  public now: Date = new Date();
+  public lastRunDate: Date;
 
-  ngOnInit(): void {
+  constructor(private apiCalls: ApiCallsService) {
+    setInterval(() => {
+      this.now = new Date();
+    }, 1);
   }
 
-  test(): string {
-    return new Date().toISOString();
+  async ngOnInit(): Promise<void> {
+    const promise$ =  await this.apiCalls.getLastRun();
+    console.log('promise$');
+    console.dir(promise$);
+    const data = promise$.data;
+    if (data && data.Code === 0 && data.Data) {
+      this.lastRunDate= data.Data.InsertedDate;
+    }
   }
 
   last_run(): string {

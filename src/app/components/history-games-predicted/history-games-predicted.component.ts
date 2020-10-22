@@ -14,7 +14,6 @@ export class HistoryGamesPredictedComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const retour =  await this.apiCalls.getGamesPredictedPaginated(1);
-    console.dir(retour);
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {
       this.data = data.Data;
