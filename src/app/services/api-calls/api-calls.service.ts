@@ -1,6 +1,5 @@
 import {TokenService} from './../token/token.service';
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 import axios from 'axios';
 
@@ -108,6 +107,5 @@ export class ApiCallsService {
     gettheTruth(): void {
       console.log('log : ' + 'Pierre is a bitch ass motherfucker');
     }
-
 
 }

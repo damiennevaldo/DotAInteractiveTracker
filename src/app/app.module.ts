@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +16,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TokenTextAreaComponent } from './components/token-text-area/token-text-area.component';
 import { ResultTableComponent } from './components/result-table/result-table.component';
 import { LiveGamesPredictedComponent } from './components/live-games-predicted/live-games-predicted.component';
+import { ToasterComponent } from './components/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +30,14 @@ import { LiveGamesPredictedComponent } from './components/live-games-predicted/l
     NavBarComponent,
     TokenTextAreaComponent,
     ResultTableComponent,
-    LiveGamesPredictedComponent
+    LiveGamesPredictedComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule
+    HttpClientModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

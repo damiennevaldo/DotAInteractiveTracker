@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ApiCallsService } from 'src/app/services/api-calls/api-calls.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ModelsScoreComponent implements OnInit {
   maxLineValues: number[] = [20, 50, 100, 150, 200];
   data = [];
 
-  constructor(private apiCalls: ApiCallsService) {  }
+  constructor(private apiCalls: ApiCallsService, private zone: NgZone) {  }
 
   async ngOnInit(): Promise<void> {
     this.maxLine = 20;
@@ -28,5 +28,4 @@ export class ModelsScoreComponent implements OnInit {
       this.data = array;
     }
   }
-
 }

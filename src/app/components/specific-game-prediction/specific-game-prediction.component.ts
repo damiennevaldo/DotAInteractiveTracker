@@ -1,3 +1,4 @@
+import { ToasterService } from './../../services/toaster/toaster.service';
 import { ApiCallsService } from 'src/app/services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
@@ -11,12 +12,13 @@ export class SpecificGamePredictionComponent implements OnInit {
 
   matchId: number = null;
   data = [];
-  constructor(private apiCalls: ApiCallsService) { }
+  constructor(private apiCalls: ApiCallsService, private toasterService:ToasterService) { }
 
   ngOnInit(): void {
   }
 
-  public async getGamePrediction(matchId: number): Promise<void> {
+  public async getGamePrediction(): Promise<void> {
+    this.toasterService.sendMessage('coucou', 'info');
     const retour =  await this.apiCalls.getPredict(this.matchId);
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {

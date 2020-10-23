@@ -5,7 +5,7 @@
         <label for="maxLine">Max Line</label>
       </div>
       <div class="col-75">
-        <select id="maxLine" name="maxLine" [(ngModel)]="maxLine">
+        <select id="maxLine" name="maxLine"[(ngModel)]="maxLine">
           <option *ngFor="let value of maxLineValues" [ngValue]="value">{{value}}</option>
         </select>
       </div>
