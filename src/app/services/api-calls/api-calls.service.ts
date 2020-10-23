@@ -1,3 +1,4 @@
+import { ToasterService } from './../toaster/toaster.service';
 import {TokenService} from './../token/token.service';
 import { Injectable } from '@angular/core';
 
@@ -22,7 +23,7 @@ const LOL_PIERRE_PTDR = '1.0/users/personnetrouverajamaismaroutedecreationdutili
 })
 export class ApiCallsService {
 
-  constructor(private token: TokenService) { }
+  constructor(private token: TokenService, private toasterService: ToasterService) { }
 
   async callApi(apiUrl: string, parameter?: any | undefined): Promise<any> {
     let uri = BASE_URL + apiUrl;
@@ -31,15 +32,17 @@ export class ApiCallsService {
    }
     console.log('Appel de :' + uri);
     try {
-    return await axios.get(uri, {
+     const retour = await axios.get(uri, {
       headers:
         {
           access_token: this.token.getToken(),
           'Access-Control-Allow-Origin': '*'}
         }
         );
+
+     return retour;
       } catch (error) {
-        console.log('dans erreur');
+        this.toasterService.sendMessage(error.response.data.Message, 'error');
         return error.response;
       }
   }
@@ -77,8 +80,6 @@ export class ApiCallsService {
         // Call to stats
     getLastRun(): Promise <any> {
         const retour = this.callApi(URL_LAST_RUN);
-        console.log('retour last run');
-        console.dir(retour);
         return retour;
     }
 

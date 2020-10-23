@@ -12,13 +12,12 @@ export class SpecificGamePredictionComponent implements OnInit {
 
   matchId: number = null;
   data = [];
-  constructor(private apiCalls: ApiCallsService, private toasterService:ToasterService) { }
+  constructor(private apiCalls: ApiCallsService) { }
 
   ngOnInit(): void {
   }
 
   public async getGamePrediction(): Promise<void> {
-    this.toasterService.sendMessage('coucou', 'info');
     const retour =  await this.apiCalls.getPredict(this.matchId);
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {
