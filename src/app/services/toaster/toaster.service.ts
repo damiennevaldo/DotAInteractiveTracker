@@ -18,7 +18,6 @@ export class ToasterService {
   }
 
   sendMessage(content: string, style: string, delay: number = 5000): void {
-    console.log('je suis là');
     const message = new Toast(content, style, delay);
     this.list.push(message);
 

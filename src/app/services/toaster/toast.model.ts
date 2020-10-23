@@ -14,11 +14,5 @@ export class Toast {
     this.delay = delay;
     this.timestamp = new Date();
     this.counter = 0;
-    const countdown = setInterval(function(): void {
-      this.counter += 50;
-      if (this.counter === this.delay) {
-        clearInterval(countdown);
-      }
-    }, 50);
   }
 }

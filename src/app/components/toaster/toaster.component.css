@@ -31,8 +31,9 @@ html, body{
 }
 
 .toast_content{
-  padding-left:70px;
+  padding-left:20px;
   padding-right:50px;
+  padding-bottom: 10px;
 }
 
 .toast_title {
@@ -49,87 +50,18 @@ html, body{
     color: #878787;
 }
 
-.toast_svg{
-  fill:#fff;
-}
-
-
-.toast_icon{
-  position:absolute;
-  top:50%;
-  left:22px;
-  transform:translateY(-50%);
-  width:14px;
-  height:14px;
-  padding: 7px;
-  border-radius:50%;
-}
-
-.toast_close {
-    position: absolute;
-    right: 22px;
-    top: 50%;
-    width: 14px;
-    cursor:pointer;
-    height: 14px;
-   fill:#878787;
-    transform: translateY(-50%);
-}
-
-
-.toast-green .toast_icon{
-  background-color:#2BDE3F;
-}
-
 .toast-green{
   border-left: 4px solid #2BDE3F;
-}
-
-.toast-blue .toast_icon{
-  background-color:#1D72F3;
 }
 
 .toast-blue{
    border-left: 4px solid #1D72F3;
 }
 
-.toast-yellow .toast_icon{
-  background-color:#FFC007;
-}
-
 .toast-yellow{
   border-left: 4px solid #FFC007;
 }
 
-.toast-red .toast_icon{
-  background-color:red;
-}
-
 .toast-red{
   border-left: 4px solid red;
-}
-
-
-.toaster_progress{
-  margin-top:18px;
-  display:absolute;
-  bottom:0;
-  height:3px;
-  width:0%;
-}
-
-
-.toast-green .toaster_progress{
-  background-color:lighten( #2BDE3F, 30% )
-}
-
-.toast-blue .toaster_progress{
-  background-color:lighten( #1D72F3, 30% );
-}
-.toast-yellow .toaster_progress{
-   background-color:lighten( #FFC007, 30% )
-}
-
-.toast-red .toaster_progress{
-  background-color:lighten( red, 30% )
 }

@@ -30,6 +30,7 @@ export class ApiCallsService {
       uri += parameter;
    }
     console.log('Appel de :' + uri);
+    try {
     return await axios.get(uri, {
       headers:
         {
@@ -37,70 +38,48 @@ export class ApiCallsService {
           'Access-Control-Allow-Origin': '*'}
         }
         );
+      } catch (error) {
+        console.log('dans erreur');
+        return error.response;
+      }
   }
     // Call to list-routes
    getListroutes(): Promise<any> {
-    try{
       return this.callApi(URL_LIST_ROUTES);
-    } catch (error) {
-      return error;
-    }
     }
 
     // Call to games-predicted
     getGamesPredictedPaginated(page: number): Promise <any> {
-      try{
         return this.callApi(URL_GAMES_PREDICTED, page);
-      } catch (error) {
-        return error;
-      }
     }
 
     // Call to games-predicted
     getGamesPredictedLive(): Promise <any> {
-      try{
          const retour = this.callApi(URL_GAMES_PREDICTED_LIVE);
-         console.log(retour);
          return retour;
-      } catch (error) {
-        return error;
-      }
     }
 
     // Call to predict
     getPredict(matchId: number): Promise <any> {
-      try{
         return this.callApi(URL_PREDICT, matchId);
-      } catch (error) {
-          return error;
-      }
     }
 
     // Call to score
     getScore(maxLine: number): Promise <any> {
-      try{
         return this.callApi(URL_SCORE, maxLine);
-      } catch (error) {
-          return error;
-      }
     }
 
     // Call to stats
     getStats(): Promise <any> {
-      try{
         return this.callApi(URL_STATS);
-      } catch (error) {
-          return error;
-      }
     }
 
         // Call to stats
     getLastRun(): Promise <any> {
-      try{
-        return this.callApi(URL_LAST_RUN);
-      } catch (error) {
-          return error;
-        }
+        const retour = this.callApi(URL_LAST_RUN);
+        console.log('retour last run');
+        console.dir(retour);
+        return retour;
     }
 
     // Call to the truth

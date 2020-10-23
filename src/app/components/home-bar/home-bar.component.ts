@@ -27,6 +27,7 @@ export class HomeBarComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const promise$ =  await this.apiCalls.getLastRun();
+    console.log('dans home-bar');
     console.dir(promise$);
     const data = promise$.data;
     if (data && data.Code === 0 && data.Data) {
