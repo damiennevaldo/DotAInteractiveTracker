@@ -1,3 +1,18 @@
 <body class="center-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <label for="maxLine">Max Line</label>
+      </div>
+      <div class="col-75">
+        <select id="maxLine" name="maxLine" [(ngModel)]="maxLine">
+          <option *ngFor="let value of maxLineValues" [ngValue]="value">{{value}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <button (click)="getScore(maxLine)">Submit</button>
+    </div>
+  </div>
   <app-result-table [data] = "data"></app-result-table>
 </body>

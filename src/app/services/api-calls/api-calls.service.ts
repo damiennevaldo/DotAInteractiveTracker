@@ -10,7 +10,7 @@ const URL_LAST_RUN = '1.0/model/last-run';
 const URL_LIST_ROUTES = '1.0/list-routes';
 // Parameter : page
 const URL_GAMES_PREDICTED = '1.0/games-predicted?page=';
-const URL_GAMES_PREDICTED_LIVE = '1.0/games-predicted-live?page=';
+const URL_GAMES_PREDICTED_LIVE = '1.0/games-predicted-live';
 // Parameter : match-id
 const URL_PREDICT = '1.0/model/predict/';
 // Parameter : max-line
@@ -58,9 +58,11 @@ export class ApiCallsService {
     }
 
     // Call to games-predicted
-    getGamesPredictedLivePaginated(page: number): Promise <any> {
+    getGamesPredictedLive(): Promise <any> {
       try{
-        return this.callApi(URL_GAMES_PREDICTED_LIVE, page);
+         const retour = this.callApi(URL_GAMES_PREDICTED_LIVE);
+         console.log(retour);
+         return retour;
       } catch (error) {
         return error;
       }

@@ -13,9 +13,7 @@ export class LiveGamesPredictedComponent implements OnInit {
   constructor(private apiCalls: ApiCallsService) {  }
 
   async ngOnInit(): Promise<void> {
-    const routes = await this.apiCalls.getListroutes();
-    console.dir(routes);
-    const retour =  await this.apiCalls.getGamesPredictedLivePaginated(1);
+    const retour =  await this.apiCalls.getGamesPredictedLive();
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {
       this.data = data.Data;
