@@ -106,9 +106,9 @@ iframe {
   display: -ms-flexbox;
   display: flex;
 /*   align-items: center; */
-  justify-content: center;
+  justify-content: right;
   flex-wrap: wrap;
-  padding: 33px 30px;
+  padding: 33px 0px;
 }
 
 .wrap-table100 {
