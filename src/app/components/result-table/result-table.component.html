@@ -8,19 +8,30 @@
 <body>
 
 	<div class="limiter">
-		<div class="container-table200">
+		<div class="container-table100">
 			<div class="wrap-table100">
 
-				<div class="table100 ver2 m-b-110">
-					<table data-vertable="ver2">
+				<div *ngIf="!verticalTable" class="table100 ver2 m-b-110">
+					<table>
 						<thead>
-							<tr class="row100 head">
+							<tr [ngClass]="'row100 head'">
                 <th *ngFor="let item of firstEntry | keyvalue: originalOrder, let i = index" [ngClass]="'column100 column'+ i+1">{{item.key}}</th>
 							</tr>
 						</thead>
 						<tbody>
               <tr *ngFor="let entry of resultData" [ngClass]="'row100'" >
                 <td *ngFor="let item of entry | keyvalue: originalOrder, let i = index" [ngClass]="'column100 column'+ i+1" >{{item.value}}</td>
+              </tr>
+						</tbody>
+					</table>
+        </div>
+
+        <div *ngIf="verticalTable" class="table100 ver2 m-b-110">
+					<table>
+						<tbody>
+              <tr *ngFor="let item of firstEntry | keyvalue: originalOrder " [ngClass]="'row100'" >
+                <th [ngClass]="'column100 head'">{{item.key}}</th>
+                <td *ngFor="let entry of resultData, let i = index" [ngClass]="'column100'" >{{entry[item.key]}}</td>
               </tr>
 						</tbody>
 					</table>

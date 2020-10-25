@@ -12,6 +12,7 @@ export class ResultTableComponent{
   constructor() { }
 
   resultData: any[];
+  verticalTable = false;
   firstEntry: Map<string, string>;
 
   @Input()
@@ -20,6 +21,7 @@ export class ResultTableComponent{
     this.resultData = data;
     if (data) {
     this.firstEntry = data[0];
+    this.verticalTable = (data.length < 2) ? true : false;
     }
   }
 
