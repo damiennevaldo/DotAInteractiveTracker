@@ -15,7 +15,7 @@ const URL_GAMES_PREDICTED_LIVE = '1.0/games-predicted-live';
 const URL_PREDICT = '1.0/model/predict/';
 // Parameter : max-line
 const URL_SCORE = '1.0/model/score/';
-const URL_STATS = '1.0/users/stats';
+const URL_USER_STATS = '1.0/users/stats';
 const LOL_PIERRE_PTDR = '1.0/users/personnetrouverajamaismaroutedecreationdutilisateur';
 
 @Injectable({
@@ -73,8 +73,8 @@ export class ApiCallsService {
     }
 
     // Call to stats
-    getStats(): Promise <any> {
-        return this.callApi(URL_STATS);
+    getUserStats(): Promise <any> {
+        return this.callApi(URL_USER_STATS);
     }
 
         // Call to stats

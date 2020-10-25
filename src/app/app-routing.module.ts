@@ -6,6 +6,7 @@ import {ModelsScoreComponent} from './components/models-score/models-score.compo
 import {SpecificGamePredictionComponent} from './components/specific-game-prediction/specific-game-prediction.component';
 import {HomeComponent} from './components/home/home.component';
 import {LiveGamesPredictedComponent} from './components/live-games-predicted/live-games-predicted.component';
+import { UserStatsComponent } from './components/user-stats/user-stats.component';
 
 const routes: Routes = [
   { path: 'history-games-predicted', component: HistoryGamesPredictedComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'models-name', component: ModelsNameComponent },
   { path: 'models-score', component: ModelsScoreComponent },
   { path: 'specific-game-prediction', component: SpecificGamePredictionComponent },
+  { path: 'user-stats', component: UserStatsComponent },
   { path: 'home', component: HomeComponent },
   {
     path: '',

@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { HomeBarComponent } from './components/home-bar/home-bar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,6 +16,7 @@ import { TokenTextAreaComponent } from './components/token-text-area/token-text-
 import { ResultTableComponent } from './components/result-table/result-table.component';
 import { LiveGamesPredictedComponent } from './components/live-games-predicted/live-games-predicted.component';
 import { ToasterComponent } from './components/toaster/toaster.component';
+import { UserStatsComponent } from './components/user-stats/user-stats.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +31,13 @@ import { ToasterComponent } from './components/toaster/toaster.component';
     TokenTextAreaComponent,
     ResultTableComponent,
     LiveGamesPredictedComponent,
-    ToasterComponent
+    ToasterComponent,
+    UserStatsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
