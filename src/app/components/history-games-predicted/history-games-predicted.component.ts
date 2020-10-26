@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HistoryGamesPredictedComponent implements OnInit {
 
   data = [];
+  isLoading = false;
 
   constructor(private apiCalls: ApiCallsService, private token: TokenService) {  }
 
@@ -24,7 +25,9 @@ export class HistoryGamesPredictedComponent implements OnInit {
         }
       }
     });*/
+    this.isLoading = true;
     const retour =  await this.apiCalls.getGamesPredictedPaginated(1);
+    this.isLoading = false;
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {
       this.data = data.Data;

@@ -17,6 +17,7 @@ import { ResultTableComponent } from './components/result-table/result-table.com
 import { LiveGamesPredictedComponent } from './components/live-games-predicted/live-games-predicted.component';
 import { ToasterComponent } from './components/toaster/toaster.component';
 import { UserStatsComponent } from './components/user-stats/user-stats.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserStatsComponent } from './components/user-stats/user-stats.component
     ResultTableComponent,
     LiveGamesPredictedComponent,
     ToasterComponent,
-    UserStatsComponent
+    UserStatsComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

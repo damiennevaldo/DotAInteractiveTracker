@@ -11,6 +11,7 @@ export class ModelsScoreComponent implements OnInit {
   maxLine: number = null;
   maxLineValues: number[] = [20, 50, 100, 150, 200];
   data = [];
+  isLoading = false;
 
   constructor(private apiCalls: ApiCallsService, private zone: NgZone) {  }
 
@@ -20,7 +21,9 @@ export class ModelsScoreComponent implements OnInit {
   }
 
   public async getScore(maxLine: number): Promise<void> {
+    this.isLoading = true;
     const retour =  await this.apiCalls.getScore(this.maxLine);
+    this.isLoading = false;
     const data = retour.data;
     if (data && data.Code === 0 && data.Data) {
       const returnMap: Map<number, number> = data.Data;

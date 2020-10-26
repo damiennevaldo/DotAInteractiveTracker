@@ -14,5 +14,6 @@
       <button (click)="getScore(maxLine)">Submit</button>
     </div>
   </div>
+  <app-loading-spinner [loading] = "isLoading"></app-loading-spinner>
   <app-result-table [data] = "data"></app-result-table>
 </body>
