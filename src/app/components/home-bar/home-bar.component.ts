@@ -14,6 +14,7 @@ export class HomeBarComponent implements OnInit {
   public now: Date = new Date();
   public lastRunDate: Date;
   public isMoreThanADay = false;
+  isLoading = false;
 
   constructor(private apiCalls: ApiCallsService) {
     setInterval(() => {
@@ -26,7 +27,9 @@ export class HomeBarComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.isLoading = true;
     const promise$ =  await this.apiCalls.getLastRun();
+    this.isLoading = false;
     const data = promise$.data;
     if (data && data.Code === 0 && data.Data) {
       const date = new Date(data.Data.InsertedDate);

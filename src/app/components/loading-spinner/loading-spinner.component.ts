@@ -10,4 +10,6 @@ export class LoadingSpinnerComponent {
   constructor() { }
 
   @Input() loading: boolean;
+
+  @Input() spinnerClass: string;
 }
