@@ -9,8 +9,7 @@ const TOKEN_KEY = 'ACCESS_TOKEN';
 })
 export class TokenService{
 
-  //TODO : bonne idée mais avec ce event, nouvel appel à chaque keyPress (faire à onBlur)
-  //tokenChanged: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  tokenChanged: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private cookieService: CookieService) {
   }
@@ -23,9 +22,10 @@ export class TokenService{
   }
 
   setToken(token: string): void {
+    if (token !== this.getToken()){
     this.cookieService.set(TOKEN_KEY, token);
-    //TODO : bonne idée mais avec ce event, nouvel appel à chaque keyPress (faire à onBlur)
-    //this.tokenChanged.next(true);
+    this.tokenChanged.next(true);
+    }
   }
 
 }

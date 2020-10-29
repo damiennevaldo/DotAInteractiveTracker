@@ -1,2 +1,2 @@
-<textarea id="tokenTextArea" name="textarea" rows="5" cols="33" [(ngModel)]='token' (ngModelChange)="tokenChanged($event)"
+<textarea id="tokenTextArea" name="textarea" rows="5" cols="33" [(ngModel)]='token' (focusout)="tokenBlurred($event)"
           placeholder="Entrez le token ici..."></textarea>

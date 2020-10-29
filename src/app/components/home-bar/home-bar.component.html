@@ -1,6 +1,8 @@
-<div>
+<div class="date-bar">
 <span id="date">{{now | date : 'medium' : 'UTC'}} </span>
 <app-loading-spinner [loading] = "isLoading" spinnerClass= "no-margin-right"></app-loading-spinner>
 <span id="last_run" [ngStyle]="{'color':isMoreThanADay ? 'red' : null}"> {{lastRunDate | date: 'medium' : 'UTC' }}</span>
-</div><h1 id="title"><img width="100" height="100" style='vertical-align: middle;'
+</div>
+<div><h1 id="title"><img width="100" height="100" style='vertical-align: middle;'
         src="https://img.icons8.com/dusk/128/000000/dota.png" /> DotA Predictor</h1>
+</div>

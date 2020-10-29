@@ -1,6 +1,6 @@
+import { TokenService } from 'src/app/services/token/token.service';
 import { ApiCallsService } from './../../services/api-calls/api-calls.service';
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
 
 const MS_IN_A_DAY = 86400000;
 
@@ -16,7 +16,7 @@ export class HomeBarComponent implements OnInit {
   public isMoreThanADay = false;
   isLoading = false;
 
-  constructor(private apiCalls: ApiCallsService) {
+  constructor(private apiCalls: ApiCallsService, private token: TokenService) {
     setInterval(() => {
       this.now = new Date();
 
@@ -26,7 +26,18 @@ export class HomeBarComponent implements OnInit {
     }, 1);
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
+    this.token.tokenChanged.subscribe (async value => {
+      if (value === true) {
+        this.callLastRun();
+      }
+    });
+    this.callLastRun();
+
+  }
+
+  private async callLastRun(): Promise<void> {
+    this.lastRunDate = null;
     this.isLoading = true;
     const promise$ =  await this.apiCalls.getLastRun();
     this.isLoading = false;

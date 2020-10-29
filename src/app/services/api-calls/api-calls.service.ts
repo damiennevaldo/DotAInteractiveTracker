@@ -30,7 +30,6 @@ export class ApiCallsService {
     if (parameter){
       uri += parameter;
    }
-    console.log('Appel de :' + uri);
     try {
      const retour = await axios.get(uri, {
       headers:
